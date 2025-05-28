@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projeto-bbts",
+  "newProjectRoot": "front",
   "projects": {
-    "projeto-bbts": {
+    "front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -74,5 +74,5 @@
       }
     }
   },
-  "defaultProject": "projeto-bbts"
+  "defaultProject": "front"
 }
