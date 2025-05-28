@@ -1,0 +1,20 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <h2 class="mat-headline text-center">Cadastro</h2>
+    <form (ngSubmit)="register()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CPF</mat-label>
+        <input matInput [(ngModel)]="cpf" name="cpf" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput [(ngModel)]="senha" name="senha" type="password" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit">
+        Cadastrar
+      </button>
+    </form>
+  </mat-card>
+</div>
