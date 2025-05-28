@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusService } from '../services/status.service';
+import { StatusService } from '../shared/services/status.service';
 
 @Component({
   selector: 'app-client-chat',

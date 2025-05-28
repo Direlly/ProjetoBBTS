@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../shared/services/auth.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -51,12 +51,12 @@ export class RegisterComponent {
     // Remove a máscara do CPF antes de enviar
     const cpfSemMascara = this.cpf.replace(/\D/g, '');
 
-    this.auth.register({
-      nome: this.nome,
-      email: this.email,
-      cpf: cpfSemMascara,
-      senha: this.senha
-    }).subscribe({
+    this.auth.register(
+      this.nome,
+      this.email,
+      cpfSemMascara,
+      this.senha
+    ).subscribe({
       next: () => {
         this.snackBar.open('Cadastro realizado com sucesso!', 'Fechar', {
           duration: 3000
