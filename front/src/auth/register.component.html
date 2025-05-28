@@ -1,18 +1,64 @@
 <div class="register-container">
   <mat-card class="register-card">
     <h2 class="mat-headline text-center">Cadastro</h2>
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="nome" name="nome" required minlength="3" />
+        <mat-error *ngIf="registerForm.controls['nome']?.hasError('required')">
+          Nome é obrigatório
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['nome']?.hasError('minlength')">
+          Nome deve ter pelo menos 3 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput [(ngModel)]="email" name="email" type="email" required email />
+        <mat-error *ngIf="registerForm.controls['email']?.hasError('required')">
+          E-mail é obrigatório
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['email']?.hasError('email')">
+          Por favor, insira um e-mail válido
+        </mat-error>
+      </mat-form-field>
+
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>CPF</mat-label>
-        <input matInput [(ngModel)]="cpf" name="cpf" required />
+        <input matInput [(ngModel)]="cpf" name="cpf" required 
+               (input)="formatCPF()" maxlength="14" />
+        <mat-error *ngIf="registerForm.controls['cpf']?.hasError('required')">
+          CPF é obrigatório
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Senha</mat-label>
-        <input matInput [(ngModel)]="senha" name="senha" type="password" required />
+        <input matInput [(ngModel)]="senha" name="senha" type="password" 
+               required minlength="6" />
+        <mat-error *ngIf="registerForm.controls['senha']?.hasError('required')">
+          Senha é obrigatória
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['senha']?.hasError('minlength')">
+          Senha deve ter pelo menos 6 caracteres
+        </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="full-width" type="submit">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar Senha</mat-label>
+        <input matInput [(ngModel)]="confirmarSenha" name="confirmarSenha" 
+               type="password" required [equalTo]="senha" />
+        <mat-error *ngIf="registerForm.controls['confirmarSenha']?.hasError('required')">
+          Confirmação de senha é obrigatória
+        </mat-error>
+        <mat-error *ngIf="registerForm.controls['confirmarSenha']?.hasError('equalTo')">
+          As senhas não coincidem
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit"
+              [disabled]="!registerForm.valid">
         Cadastrar
       </button>
     </form>

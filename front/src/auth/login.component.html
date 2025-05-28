@@ -2,15 +2,17 @@
   <mat-card class="login-card">
     <h2 class="mat-headline text-center">Login</h2>
     <form (ngSubmit)="login()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>CPF</mat-label>
-        <input matInput [(ngModel)]="cpf" name="cpf" required />
-      </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Senha</mat-label>
-        <input matInput [(ngModel)]="senha" name="senha" type="password" required />
-      </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf" required />
+          <mat-error *ngIf="form.get('cpf')?.hasError('required')">
+            CPF é obrigatório
+          </mat-error>
+          <mat-error *ngIf="form.get('cpf')?.hasError('pattern')">
+            Digite um CPF válido
+          </mat-error>
+        </mat-form-field>
 
       <button mat-raised-button color="primary" class="full-width" type="submit">
         Entrar

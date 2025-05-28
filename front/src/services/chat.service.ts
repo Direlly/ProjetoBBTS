@@ -8,7 +8,7 @@ export class ChatService {
   constructor() {}
 
   enviar(mensagem: string) {
-    // Aqui será integrado com WebSocket futuramente
+    // Aqui será integrado com WebSocket 
     this.messages.next(mensagem);
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminStatusService } from '../services/status.service';
+import { StatusService } from '../services/status.service';
 
 @Component({
   selector: 'app-client-chat',
@@ -9,7 +9,7 @@ import { AdminStatusService } from '../services/status.service';
 export class ClientChatComponent implements OnInit {
   adminOnline = false;
 
-  constructor(private adminStatus: AdminStatusService) {}
+  constructor(private adminStatus: StatusService) {}
 
   ngOnInit(): void {
     this.adminStatus.isAdminOnline().subscribe({

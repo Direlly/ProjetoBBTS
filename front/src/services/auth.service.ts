@@ -13,8 +13,8 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/auth/login`, { cpf, senha });
   }
 
-  register(cpf: string, senha: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/register`, { cpf, senha });
+  register(nome: string, email: string, cpf: string, senha: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/register`, { nome, email, cpf, senha });
   }
 
   logout(): void {
