@@ -1,0 +1,12 @@
+.chat-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5;
+}
+.chat-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+}

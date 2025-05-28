@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="navbar-title">Sistema de Chat</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="auth.isLoggedIn(); else login">
+    <button mat-button (click)="logout()">Sair</button>
+  </ng-container>
+  <ng-template #login>
+    <button mat-button routerLink="/login">Entrar</button>
+    <button mat-button routerLink="/register">Cadastrar</button>
+  </ng-template>
+</mat-toolbar>
