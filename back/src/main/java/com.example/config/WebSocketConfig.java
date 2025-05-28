@@ -6,21 +6,23 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.lang.NonNull;
-// Configuração do WebSocket para o chat
-// Permite que o frontend Angular se conecte ao backend Spring Boot via WebSocket
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
-   // Configuração do WebSocket para o chat
+    private static final Logger logger = LoggerFactory.getLogger(WebSocketConfig.class);
     private final ChatWebSocketHandler chatWebSocketHandler;
-    
+
     public WebSocketConfig(ChatWebSocketHandler chatWebSocketHandler) {
         this.chatWebSocketHandler = chatWebSocketHandler;
     }
-   
+
     @Override
     public void registerWebSocketHandlers(@NonNull WebSocketHandlerRegistry registry) {
+        logger.info("Registrando handler de WebSocket em /chat");
         registry.addHandler(this.chatWebSocketHandler, "/chat")
-                .setAllowedOrigins("http://localhost:4200/login"); // Conexão do WebSocket com o frontend Angular
+                .setAllowedOrigins("http://localhost:4200");
     }
 }
