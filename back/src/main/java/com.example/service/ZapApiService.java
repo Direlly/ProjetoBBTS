@@ -1,5 +1,6 @@
 package com.example.chat.service;
 
+import com.example.chat.model.MessageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
