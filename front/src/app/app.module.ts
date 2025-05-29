@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-// Angular Material Modules
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -29,10 +29,8 @@ import { AdminChatComponent } from './chat/admin.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, // Importação do BrowserAnimationsModule
+    BrowserAnimationsModule, 
     FormsModule,
-    
-    // Angular Material Modules
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,

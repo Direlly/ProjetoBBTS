@@ -2,9 +2,9 @@
   <ng-container *ngIf="adminOnline; else redirect">
     <mat-card class="chat-card">
       <p class="text-green-600">Chat iniciado com um atendente!</p>
-      
     </mat-card>
   </ng-container>
+
   <ng-template #redirect>
     <mat-card class="chat-card text-center">
       <p class="text-red-600">Nenhum atendente disponível.</p>
@@ -12,9 +12,11 @@
         mat-raised-button
         color="accent"
         class="mt-4"
-        href="https://wa.me/SEU_NUMERO?text=Olá,%20preciso%20de%20ajuda"
+        [href]="whatsappLink"
         target="_blank"
-      >Ir para o WhatsApp</a>
+      >
+        Ir para o WhatsApp
+      </a>
     </mat-card>
   </ng-template>
 </div>

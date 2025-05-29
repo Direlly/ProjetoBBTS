@@ -3,8 +3,8 @@ import { StatusService } from '../shared/services/status.service';
 
 @Component({
   selector: 'app-client-chat',
-  templateUrl: './client-chat.component.html',
-  styleUrls: ['./client-chat.component.css']
+  templateUrl: './client.component.html',
+  styleUrls: ['./client.component.css']
 })
 export class ClientChatComponent implements OnInit {
   adminOnline = false;
@@ -17,4 +17,5 @@ export class ClientChatComponent implements OnInit {
       error: () => this.adminOnline = false
     });
   }
+  whatsappLink = 'https://wa.me/55SEUNUMERO?text=Olá,%20preciso%20de%20ajuda';
 }
